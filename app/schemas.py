@@ -55,3 +55,44 @@ class ShowWishList(BaseModel):
 
     class Config:
         orm_mode = True
+
+# Book Schema
+class Book(BaseModel):
+    book_id = int
+    isbn =  str
+    title = str
+    author_id = int
+    publisher = str
+    publishedDate = datetime
+    price = float
+    copiesSold = int
+
+    # Optional
+    description = str
+
+# Author Schema
+class Author(BaseModel):
+    author_id = int
+    firstName = str
+    lastName = str
+
+    # Optional
+    publisher = str
+    biography = str
+    books = str
+    
+# Publisher Schema
+class Publisher(BaseModel):
+    publisher_id = int
+    book_id = int
+
+    # Optional
+    country = str
+
+# Order Schema
+class Order(BaseModel):
+    order_id = int
+    user_id = int
+    orderDate = datetime
+    subtotal = float
+    shipping = float
